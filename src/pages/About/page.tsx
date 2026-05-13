@@ -8,6 +8,9 @@ function About() {
     { year: '🚀 2025 — Portfolio Projects', desc: 'Built a full portfolio website, student management system, library system, and inventory dashboard.' },
   ]
 
+  // Ye sirf logic hai, styling nahi.
+  const baseUrl = (import.meta as any).env.BASE_URL;
+
   return (
     <div className="page">
 
@@ -45,13 +48,20 @@ function About() {
             </p>
             <div className="about-buttons">
               <Link to="/contact" className="link-button">Hire Me</Link>
-              <a href="/Khizra-CV.pdf" download><button>Download CV</button></a>
+              {/* Sirf href path fix kiya hai, styling button ki CSS file se hi aa rahi hai */}
+              <a href={`${baseUrl}Khizra-CV.pdf`} download>
+                <button>Download CV</button>
+              </a>
             </div>
           </div>
 
           <div className="about-sidebar">
             <div className="profile-img-box">
-              <img src="/images/profile.png" alt="Khizra Yaqoob" className="profile-img" />
+              <img 
+                src={`${baseUrl}images/profile.png`} 
+                alt="Khizra Yaqoob" 
+                className="profile-img" 
+              />
             </div>
             <div className="card">
               <h3>🎓 Education</h3>

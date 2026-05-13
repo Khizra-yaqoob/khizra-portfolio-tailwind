@@ -13,48 +13,51 @@ interface Project {
   linkLabel: string
 }
 
-const allProjects: Project[] = [
-  {
-    id: 1, title: 'Student Management System',
-    desc: 'A desktop application to manage student records, grades, and attendance using Java and MySQL with full CRUD operations.',
-    category: 'java', icon: '🎓', img: '/images/project1.png',
-    badges: ['Java', 'MySQL'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
-  },
-  {
-    id: 2, title: 'Library Management System',
-    desc: 'Console-based system for managing books, issuing records, returns, and fine calculation using C++ and file handling.',
-    category: 'cpp', icon: '📚', img: '/images/project2.png',
-    badges: ['C++', 'OOP'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
-  },
-  {
-    id: 3, title: 'Portfolio Website',
-    desc: 'Responsive personal portfolio website with dark/light theme, skill bars, project filters, and contact form.',
-    category: 'web', icon: '🌐', img: '/images/project3.png',
-    badges: ['HTML', 'CSS', 'JS'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
-  },
-  {
-    id: 4, title: 'Shop Inventory Dashboard',
-    desc: 'Interactive inventory management dashboard with bar charts, CRUD operations, activity log, and CSV export feature.',
-    category: 'database', icon: '🏪', img: '/images/project4.png',
-    badges: ['MySQL', 'JavaScript'], link: '/dashboard', linkLabel: '↗ Open',
-  },
-  {
-    id: 5, title: 'Scientific Calculator',
-    desc: 'C++ calculator supporting arithmetic, trigonometry, logarithm, and complex mathematical expression evaluation.',
-    category: 'cpp', icon: '🧮',
-    badges: ['C++'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
-  },
-  {
-    id: 6, title: 'To-Do List App',
-    desc: 'Browser-based task manager with add, delete, complete, and filter functionality using vanilla JavaScript.',
-    category: 'web', icon: '✅',
-    badges: ['JavaScript', 'HTML'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
-  },
-]
-
 type Filter = 'all' | 'java' | 'cpp' | 'web' | 'database'
 
 function Projects() {
+  // GitHub Pages ke liye base URL ka logic
+  const baseUrl = (import.meta as any).env.BASE_URL;
+
+  const allProjects: Project[] = [
+    {
+      id: 1, title: 'Student Management System',
+      desc: 'A desktop application to manage student records, grades, and attendance using Java and MySQL with full CRUD operations.',
+      category: 'java', icon: '🎓', img: `${baseUrl}images/project1.png`,
+      badges: ['Java', 'MySQL'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
+    },
+    {
+      id: 2, title: 'Library Management System',
+      desc: 'Console-based system for managing books, issuing records, returns, and fine calculation using C++ and file handling.',
+      category: 'cpp', icon: '📚', img: `${baseUrl}images/project2.png`,
+      badges: ['C++', 'OOP'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
+    },
+    {
+      id: 3, title: 'Portfolio Website',
+      desc: 'Responsive personal portfolio website with dark/light theme, skill bars, project filters, and contact form.',
+      category: 'web', icon: '🌐', img: `${baseUrl}images/project3.png`,
+      badges: ['HTML', 'CSS', 'JS'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
+    },
+    {
+      id: 4, title: 'Shop Inventory Dashboard',
+      desc: 'Interactive inventory management dashboard with bar charts, CRUD operations, activity log, and CSV export feature.',
+      category: 'database', icon: '🏪', img: `${baseUrl}images/project4.png`,
+      badges: ['MySQL', 'JavaScript'], link: '/dashboard', linkLabel: '↗ Open',
+    },
+    {
+      id: 5, title: 'Scientific Calculator',
+      desc: 'C++ calculator supporting arithmetic, trigonometry, logarithm, and complex mathematical expression evaluation.',
+      category: 'cpp', icon: '🧮',
+      badges: ['C++'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
+    },
+    {
+      id: 6, title: 'To-Do List App',
+      desc: 'Browser-based task manager with add, delete, complete, and filter functionality using vanilla JavaScript.',
+      category: 'web', icon: '✅',
+      badges: ['JavaScript', 'HTML'], link: 'https://github.com/khizra-yaqoob', linkLabel: '↗ Code',
+    },
+  ]
+
   const [activeFilter, setActiveFilter] = useState<Filter>('all')
 
   const filters: { value: Filter; label: string }[] = [
